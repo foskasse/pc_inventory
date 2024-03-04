@@ -1,5 +1,4 @@
 
-```markdown
 # PC Inventory Management
 
 This Python script allows you to manage PC inventory by loading data from CSV files into an SQLite database and providing a GUI interface to view the last 10 entries and search by serial number, memory serial, and board serial.
