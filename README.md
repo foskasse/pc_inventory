@@ -1,4 +1,3 @@
-Certainly! Below is an example README.md file that you can use to document your Python script:
 
 ```markdown
 # PC Inventory Management
@@ -58,5 +57,3 @@ This Python script allows you to manage PC inventory by loading data from CSV fi
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
 ```
-
-Replace the placeholders (`yourusername`, etc.) with your actual details and customize the content based on your project. This example includes sections for prerequisites, setup, usage instructions, file structure, and additional notes. Feel free to modify and expand it according to your specific needs.
