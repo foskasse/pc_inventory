@@ -1,0 +1,11 @@
+2024-03-05 12:21:41,437 - DEBUG: Database 'computers.db' created successfully.
+2024-03-05 12:21:41,438 - DEBUG: Table 'computers' created successfully.
+2024-03-05 12:22:01,182 - DEBUG: Database 'computers.db' created successfully.
+2024-03-05 12:22:01,182 - DEBUG: Table 'computers' created successfully.
+2024-03-05 12:22:21,483 - INFO: Processed and moved 6968-Processed_2024-03-05.csv.
+2024-03-05 12:23:27,630 - INFO: Inserted data into database: Computer ID: 3554, Component: CPU, Serial Number: 2424asdasda
+2024-03-05 12:23:27,634 - INFO: Inserted data into database: Computer ID: 3554, Component: RAM, Serial Number: 00000000
+2024-03-05 12:23:27,638 - INFO: Inserted data into database: Computer ID: 3554, Component: Hard Drive, Serial Number: adadad
+2024-03-05 12:23:27,642 - INFO: Inserted data into database: Computer ID: 3554, Component: Hard Drive, Serial Number: adadada.
+2024-03-05 12:23:27,645 - INFO: Inserted data into database: Computer ID: 3554, Component: Motherboard, Serial Number: adasd
+2024-03-05 12:23:27,646 - INFO: Processed and moved 9202-Processed_2024-03-05.csv.
