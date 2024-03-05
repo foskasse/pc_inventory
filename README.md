@@ -22,35 +22,43 @@ This Python script allows you to manage PC inventory by loading data from CSV fi
    pip install -r requirements.txt
    ```
 
-3. Create an SQLite database:
+3. If needed create an SQLite database:
 
    ```bash
-   python create_database.py
+   python CreateDatabase.py
    ```
 
 ## Usage
 
-1. Load PC inventory data from a CSV file:
+1. Load PC inventory data from a CSV file to the CSVToBeProcessed Folder (you can run it manually or crontab):
 
    ```bash
-   python process_csv.py
+   python ETLDatabase.py.py
    ```
 
-2. Run the GUI application to view the last 10 entries and search for specific PCs:
+2. Run the GUI application:
 
    ```bash
-   python gui_app.py
+   python Interface.py
    ```
 
-## File Structure
+3. Run the Web Interface (http://127.0.0.1:5000/):
 
-- `create_database.py`: Creates the SQLite database and the `pc_inventory` table.
-- `process_csv.py`: Loads data from a CSV file into the SQLite database.
-- `gui_app.py`: Displays a GUI interface to view the last 10 entries and search for PCs.
+   ```bash
+   python Web.py
+   ```
+## File Structure and CLI APPS
+
+- `ShowDatabase.py`: Shows  `pc_inventory` table.
+- `SearchDatabase.py`: Search Database.
+- `EditEntity.py`: Edit Database via CLI.
+- `DeleteDatabase.py`: Delete Database
+- `CreateDatabase.py`: Create Database
+- `ETLDatabase.py`: Transform the CSV's on the folder CSVToBeProcessed into the database and move to the CSVProcessed
 
 ## Additional Notes
 
-- The database file (`pc_inventory.db`) will be created in the project directory.
+- The database file (`computers.db`) will be created in the project directory.
 
 ## License
 

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('index') }}">Home</a></li>
+            <li><a href="{{ url_for('view_entries') }}">View Last 10 Entries</a></li>
+            <li><a href="{{ url_for('search') }}">Search Entries</a></li>
+            <li><a href="{{ url_for('generate_qr') }}">Generate QR Code</a></li>
+            <li><a href="{{ url_for('add_entry') }}">Add New Entry</a></li>
+            <li><a href="{{ url_for('export_csv') }}">Export to CSV</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <h1>Search Results</h1>
+        <table class="large-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Computer ID</th>
+                    <th>Component</th>
+                    <th>Serial Number</th>
+                    <th>Date Added</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for entry in entries %}
+                <tr>
+                    <td>{{ entry[0] }}</td>
+                    <td>{{ entry[1] }}</td>
+                    <td>{{ entry[2] }}</td>
+                    <td>{{ entry[3] }}</td>
+                    <td>{{ entry[4] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
