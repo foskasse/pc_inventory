@@ -50,6 +50,7 @@ def insert_data(computer_id, component, serial_number):
     ''', (computer_id, component, serial_number, date_added))
     conn.commit()
     conn.close()
+    logging.info(f"Inserted data into database: Computer ID: {computer_id}, Component: {component}, Serial Number: {serial_number}")
 
 # Function to process a CSV file
 def process_csv_file(file_path):
