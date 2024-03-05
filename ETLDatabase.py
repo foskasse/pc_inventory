@@ -30,8 +30,9 @@ def create_table():
 
 # Function to create the SQLite database
 def create_database():
-    conn = sqlite3.connect("computers.db")
-    conn.close()
+    if not os.path.exists("computers.db"):
+        conn = sqlite3.connect("computers.db")
+        conn.close()
 
 # Function to generate a unique computer ID
 def generate_computer_id():

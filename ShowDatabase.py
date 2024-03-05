@@ -1,27 +1,27 @@
 import sqlite3
 
-def fetch_and_print_data(db_file):
-    # Connect to SQLite database
-    conn = sqlite3.connect(db_file)
+# Function to fetch and display data from the SQLite database
+def display_database():
+    conn = sqlite3.connect("computers.db")
     cursor = conn.cursor()
 
-    # Fetch all data from pc_inventory table
-    cursor.execute('SELECT * FROM pc_inventory')
-    data = cursor.fetchall()
+    cursor.execute("SELECT * FROM computers")
+    rows = cursor.fetchall()
 
-    # Print the header
-    print("ID\tBrand\tSerialNumber\tMemorySerial\tBoardSerial\tDateAdded")
+    if not rows:
+        print("No data in the database.")
+    else:
+        print("Database Results:")
+        print("ID | Computer_ID | Component | Serial_Number")
+        print("-" * 45)
+        for row in rows:
+            print(f"{row[0]} | {row[1]} | {row[2]} | {row[3]}")
 
-    # Print the data
-    for row in data:
-        print(f"{row[0]}\t{row[1]}\t{row[2]}\t{row[3]}\t{row[4]}\t{row[5]}")
-
-    # Close the database connection
     conn.close()
 
-if __name__ == "__main__":
-    # Provide the path to the SQLite database file
-    sqlite_db_file = 'pc_inventory.db'  # Update with your actual database file path
+# Main function to display database results
+def main():
+    display_database()
 
-    # Fetch and print data from the SQLite database
-    fetch_and_print_data(sqlite_db_file)
+if __name__ == "__main__":
+    main()

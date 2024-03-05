@@ -1,5 +1,0 @@
-2024-03-04 21:38:32.359511 - INFO: No CSV files found in 'CSVToBeProcessed' folder.
-2024-03-04 21:38:52.784534 - INFO: CSV file 'teste.csv' moved to 'CSVProcessed'.
-2024-03-04 21:38:52.784723 - INFO: CSV file 'teste.csv' successfully added to the database.
-2024-03-04 22:33:04.036174 - INFO: CSV file 'teste.csv' moved to 'CSVProcessed'.
-2024-03-04 22:33:04.037276 - INFO: CSV file 'teste.csv' successfully added to the database.

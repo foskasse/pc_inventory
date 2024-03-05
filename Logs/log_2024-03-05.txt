@@ -1,0 +1,10 @@
+2024-03-05 00:17:37,160 - INFO: Processed and moved Hardware_Serial_Numbers-2.csv.
+2024-03-05 00:17:37,169 - INFO: Processed and moved Hardware_Serial_Numbers-2 copy.csv.
+2024-03-05 00:24:18,237 - INFO: Processed and moved Hardware_Serial_Numbers-2 copy.csv.
+2024-03-05 00:27:31,578 - INFO: Processed and moved Hardware_Serial_Numbers-2 copy.csv.
+2024-03-05 01:11:24,675 - INFO: Processed and moved Hardware_Serial_Numbers-2.csv.
+2024-03-05 01:11:24,684 - INFO: Processed and moved Hardware_Serial_Numbers-2 copy.csv.
+2024-03-05 01:21:51,106 - INFO: Processed and moved Hardware_Serial_Numbers-2 copy.csv.
+2024-03-05 01:27:17,590 - INFO: Processed and moved Hardware_Serial_Numbers-2.csv.
+2024-03-05 01:27:17,599 - INFO: Processed and moved Hardware_Serial_Numbers-2 copy.csv.
+2024-03-05 01:28:14,614 - INFO: Processed and moved Hardware_Serial_Numbers-2.csv.
