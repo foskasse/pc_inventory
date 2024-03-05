@@ -9,3 +9,15 @@
 2024-03-05 12:23:27,642 - INFO: Inserted data into database: Computer ID: 3554, Component: Hard Drive, Serial Number: adadada.
 2024-03-05 12:23:27,645 - INFO: Inserted data into database: Computer ID: 3554, Component: Motherboard, Serial Number: adasd
 2024-03-05 12:23:27,646 - INFO: Processed and moved 9202-Processed_2024-03-05.csv.
+2024-03-05 13:00:13,528 - INFO: Inserted data into database: Computer ID: 8631, Component: CPU, Serial Number: 2424asdasda
+2024-03-05 13:00:13,533 - INFO: Inserted data into database: Computer ID: 8631, Component: RAM, Serial Number: 00000000
+2024-03-05 13:00:13,538 - INFO: Inserted data into database: Computer ID: 8631, Component: Hard Drive, Serial Number: adadad
+2024-03-05 13:00:13,543 - INFO: Inserted data into database: Computer ID: 8631, Component: Hard Drive, Serial Number: adadada.
+2024-03-05 13:00:13,547 - INFO: Inserted data into database: Computer ID: 8631, Component: Motherboard, Serial Number: adasd
+2024-03-05 13:00:13,548 - INFO: Processed and moved pcs123.csv.
+2024-03-05 13:07:41,686 - INFO: Inserted data into database: Computer ID: 7465, Component: CPU, Serial Number: 2424asdasda
+2024-03-05 13:07:41,690 - INFO: Inserted data into database: Computer ID: 7465, Component: RAM, Serial Number: 00000000
+2024-03-05 13:07:41,696 - INFO: Inserted data into database: Computer ID: 7465, Component: Hard Drive, Serial Number: adadad
+2024-03-05 13:07:41,700 - INFO: Inserted data into database: Computer ID: 7465, Component: Hard Drive, Serial Number: adadada.
+2024-03-05 13:07:41,706 - INFO: Inserted data into database: Computer ID: 7465, Component: Motherboard, Serial Number: adasd
+2024-03-05 13:07:41,707 - INFO: Processed and moved 8631-Processed_2024-03-05.csv.
