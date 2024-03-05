@@ -22,7 +22,8 @@ def create_table():
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             computer_id TEXT,
             component TEXT,
-            serial_number TEXT
+            serial_number TEXT,
+            date_added TEXT
         )
     ''')
     conn.commit()
@@ -42,10 +43,11 @@ def generate_computer_id():
 def insert_data(computer_id, component, serial_number):
     conn = sqlite3.connect("computers.db")
     cursor = conn.cursor()
+    date_added = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     cursor.execute('''
-        INSERT INTO computers (computer_id, component, serial_number)
-        VALUES (?, ?, ?)
-    ''', (computer_id, component, serial_number))
+        INSERT INTO computers (computer_id, component, serial_number, date_added)
+        VALUES (?, ?, ?, ?)
+    ''', (computer_id, component, serial_number, date_added))
     conn.commit()
     conn.close()
 

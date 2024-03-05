@@ -17,7 +17,7 @@ class ComputerDatabaseApp:
         with sqlite3.connect("computers.db") as conn:
             cursor = conn.cursor()
             cursor.execute('''
-                SELECT computer_id, component, serial_number
+                SELECT computer_id, component, serial_number, date_added
                 FROM computers
                 ORDER BY computer_id DESC, component
                 LIMIT 100
@@ -54,8 +54,9 @@ class ComputerDatabaseApp:
 
     def update_treeview(self, data, treeview):
         treeview.delete(*treeview.get_children())
-        for computer_id, component, serial_number in data:
-            treeview.insert('', 'end', values=(computer_id, component, serial_number))
+        for row in data:
+            treeview.insert('', 'end', values=row)
+        treeview.bind("<Double-1>", lambda event, tv=treeview: self.copy_to_clipboard(event, tv))
 
     def delete_all_entries(self):
         with sqlite3.connect("computers.db") as conn:
@@ -86,14 +87,6 @@ class ComputerDatabaseApp:
             shutil.copy(file_path, "computers.db")
             messagebox.showinfo("Restore Database", "Database restored successfully.")
 
-    def copy_computer_id(self, event):
-        item = self.treeview.selection()
-        if item:
-            computer_id = self.treeview.item(item, 'values')[0]
-            self.treeview.clipboard_clear()
-            self.treeview.clipboard_append(computer_id)
-            self.treeview.update()
-
     def perform_search(self):
         search_text = self.search_entry.get()
         result = self.search(computer_id=search_text)
@@ -107,21 +100,27 @@ class ComputerDatabaseApp:
     def update_edit_treeview(self, data, treeview):
         treeview.delete(*treeview.get_children())
         for computer_id, component, serial_number in data:
-            treeview.insert('', 'end', values=(component, serial_number))
+            treeview.insert('', 'end', iid=f"{computer_id}_{component}", values=(component, serial_number))
+        treeview.bind("<Double-1>", lambda event, tv=treeview: self.copy_to_clipboard(event, tv))
 
     def perform_edit(self):
         computer_id_text = self.edit_entry.get()
         new_serial_text = self.new_serial_entry.get()
         selected_item = self.edit_treeview.selection()
         if selected_item:
-            for item in selected_item:  # Assuming multiple selections could be possible
-                component, _ = self.edit_treeview.item(item, 'values')
-                self.update_serial_number(computer_id_text, component, new_serial_text)
-            self.perform_edit_search()  # Refresh the edit treeview with the updated data
+            component = self.edit_treeview.item(selected_item, 'values')[0]
+            self.update_serial_number(computer_id_text, component, new_serial_text)
+            self.perform_edit_search()
             messagebox.showinfo("Edit Serial Number", "Serial Number edited successfully.")
         else:
             messagebox.showwarning("Edit Serial Number", "Please select a component for editing.")
 
+    def copy_to_clipboard(self, event, treeview):
+        item = treeview.selection()[0]
+        computer_id = treeview.item(item, 'values')[0]
+        self.root.clipboard_clear()
+        self.root.clipboard_append(computer_id)
+        messagebox.showinfo("Copied to Clipboard", f"Computer ID {computer_id} copied to clipboard.")
 
     def initialize_gui_components(self):
         self.notebook = ttk.Notebook(self.root)
@@ -136,10 +135,11 @@ class ComputerDatabaseApp:
         tab_last_entries = ttk.Frame(notebook)
         last_entries_label = tk.Label(tab_last_entries, text="Last Entries", font=("Helvetica", 16))
         last_entries_label.pack(pady=10)
-        self.treeview = ttk.Treeview(tab_last_entries, columns=('Computer ID', 'Component', 'Serial Numbers'), show='headings')
+        self.treeview = ttk.Treeview(tab_last_entries, columns=('Computer ID', 'Component', 'Serial Number', 'Date Added'), show='headings')
         self.treeview.heading('Computer ID', text='Computer ID')
         self.treeview.heading('Component', text='Component')
-        self.treeview.heading('Serial Numbers', text='Serial Numbers')
+        self.treeview.heading('Serial Number', text='Serial Number')
+        self.treeview.heading('Date Added', text='Date Added')  # New column for date_added
         self.treeview.pack(expand=1, fill='both')
         self.update_treeview(self.get_last_entries(), self.treeview)
         notebook.add(tab_last_entries, text="Last Entries")
@@ -154,10 +154,10 @@ class ComputerDatabaseApp:
         self.search_entry.pack(pady=5)
         search_button = tk.Button(tab_search, text="Search", command=self.perform_search)
         search_button.pack(pady=10)
-        self.search_treeview = ttk.Treeview(tab_search, columns=('Computer ID', 'Component', 'Serial Numbers'), show='headings')
+        self.search_treeview = ttk.Treeview(tab_search, columns=('Computer ID', 'Component', 'Serial Number'), show='headings')
         self.search_treeview.heading('Computer ID', text='Computer ID')
         self.search_treeview.heading('Component', text='Component')
-        self.search_treeview.heading('Serial Numbers', text='Serial Numbers')
+        self.search_treeview.heading('Serial Number', text='Serial Number')
         self.search_treeview.pack(expand=1, fill='both')
         notebook.add(tab_search, text="Search")
 

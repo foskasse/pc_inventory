@@ -12,10 +12,10 @@ def display_database():
         print("No data in the database.")
     else:
         print("Database Results:")
-        print("ID | Computer_ID | Component | Serial_Number")
-        print("-" * 45)
+        print("ID | Computer_ID | Component | Serial_Number | Date Created")
+        print("-" * 60)  # Adjusted width for formatting
         for row in rows:
-            print(f"{row[0]} | {row[1]} | {row[2]} | {row[3]}")
+            print(f"{row[0]} | {row[1]} | {row[2]} | {row[3]} | {row[4]}")  # Include date_created field
 
     conn.close()
 

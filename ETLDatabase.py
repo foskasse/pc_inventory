@@ -4,6 +4,7 @@ import os
 import shutil
 import logging
 from datetime import datetime
+import random
 
 # Set up logging
 log_folder = "Logs"
@@ -22,7 +23,8 @@ def create_table():
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             computer_id TEXT,
             component TEXT,
-            serial_number TEXT
+            serial_number TEXT,
+            date_added TEXT
         )
     ''')
     conn.commit()
@@ -30,23 +32,22 @@ def create_table():
 
 # Function to create the SQLite database
 def create_database():
-    if not os.path.exists("computers.db"):
-        conn = sqlite3.connect("computers.db")
-        conn.close()
+    conn = sqlite3.connect("computers.db")
+    conn.close()
 
-# Function to generate a unique computer ID
+# Function to generate a random computer ID
 def generate_computer_id():
-    # You can modify this function based on your specific requirements for generating computer IDs
-    return str(int(datetime.now().timestamp()))[:10]
+    return str(random.randint(1000, 9999))
 
 # Function to insert data into SQLite database
 def insert_data(computer_id, component, serial_number):
     conn = sqlite3.connect("computers.db")
     cursor = conn.cursor()
+    date_added = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     cursor.execute('''
-        INSERT INTO computers (computer_id, component, serial_number)
-        VALUES (?, ?, ?)
-    ''', (computer_id, component, serial_number))
+        INSERT INTO computers (computer_id, component, serial_number, date_added)
+        VALUES (?, ?, ?, ?)
+    ''', (computer_id, component, serial_number, date_added))
     conn.commit()
     conn.close()
 
