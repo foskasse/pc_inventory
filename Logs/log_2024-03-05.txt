@@ -183,3 +183,12 @@
 2024-03-05 03:01:50,814 - INFO: Processed and moved Hardware_Serial_Numbers-2 copy 2.csv.
 2024-03-05 03:01:50,824 - INFO: Processed and moved Hardware_Serial_Numbers-2 copy 3.csv.
 2024-03-05 03:01:50,833 - INFO: Processed and moved Hardware_Serial_Numbers-2 copy 4.csv.
+2024-03-05 11:29:40,997 - INFO: Processed and moved Hardware_Serial_Numbers-2 copy 4.csv.
+2024-03-05 11:29:50,403 - INFO: Processed and moved Hardware_Serial_Numbers-2 copy 2.csv.
+2024-03-05 11:30:31,374 - INFO: Processed and moved Hardware_Serial_Numbers-2 copy.csv.
+2024-03-05 11:31:46,126 - INFO: Processed and moved Hardware_Serial_Numbers-2 copy 3.csv.
+2024-03-05 11:33:24,942 - INFO: Processed and moved Hardware_Serial_Numbers-2.csv.
+2024-03-05 11:37:00,279 - INFO: Processed and moved pcsmegamacho copy.csv.
+2024-03-05 11:37:00,303 - INFO: Processed and moved pcsmegamacho.csv.
+2024-03-05 11:38:54,584 - INFO: Processed and moved 9859-Processed_2024-03-05.csv.
+2024-03-05 11:39:09,928 - INFO: Processed and moved 8911-Processed_2024-03-05.csv.

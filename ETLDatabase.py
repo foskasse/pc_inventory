@@ -60,13 +60,17 @@ def process_csv_file(file_path):
             component = row['Component']
             serial_number = row['SerialNumber']
             insert_data(computer_id, component, serial_number)
+    return computer_id
 
 # Function to move the processed CSV file
-def move_processed_file(file_path):
+def move_processed_file(file_path, computer_id):
     processed_folder = "CSVProcessed"
     if not os.path.exists(processed_folder):
         os.makedirs(processed_folder)
-    shutil.move(file_path, os.path.join(processed_folder, os.path.basename(file_path)))
+    now = datetime.now().strftime("%Y-%m-%d")
+    new_file_name = f"{computer_id}-Processed_{now}.csv"
+    new_file_path = os.path.join(processed_folder, new_file_name)
+    shutil.move(file_path, new_file_path)
 
 # Main function to process CSV files in the "CSVToBeProcessed" folder
 def main():
@@ -78,8 +82,8 @@ def main():
         if filename.endswith(".csv"):
             file_path = os.path.join(input_folder, filename)
             try:
-                process_csv_file(file_path)
-                move_processed_file(file_path)
+                computer_id = process_csv_file(file_path)
+                move_processed_file(file_path, computer_id)
                 logging.info(f"Processed and moved {filename}.")
             except Exception as e:
                 logging.error(f"Error processing {filename}: {str(e)}")
